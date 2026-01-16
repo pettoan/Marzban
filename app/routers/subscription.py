@@ -139,13 +139,6 @@ def user_subscription(
         return Response(content=conf, media_type="text/plain", headers=response_headers)
 
 
-@router.get("/{token}/info", response_model=SubscriptionUserResponse)
-def user_subscription_info(
-    dbuser: UserResponse = Depends(get_validated_sub),
-):
-    """Retrieves detailed information about the user's subscription."""
-    return dbuser
-
 
 @router.get("/{token}/usage")
 def user_get_usage(
